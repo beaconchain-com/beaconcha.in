@@ -1,0 +1,129 @@
+## Beaconchain Dashboard
+
+Beaconchain Dashboard is an open-source Ethereum 2.0 validator performance tracker app for Android and iOS. It uses the beaconcha.in API.
+
+Author: Mahdi Amolimoghaddam
+
+---
+
+### Features
+- Track validator online status, balances, rewards and more  
+- Configurable notification alerts per validator  
+- Combined dashboard view (supports up to 100 validators)  
+- Ethereum client update notifications and network warnings  
+- Support for multiple fiat currencies  
+- Mainnet and Testnet support  
+- Add validators via public key, index, or ETH1 deposit address  
+- Light and Dark themes
+
+---
+
+### Technologies
+- Angular (TypeScript, HTML, CSS)  
+- Ionic Framework and Ionic Capacitor for native bridging
+
+---
+
+### Prerequisites
+- Node.js and npm  
+- Ionic CLI, native-run and cordova-res:
+```
+npm install -g @ionic/cli native-run cordova-res
+```
+- Install project dependencies:
+```
+npm i
+```
+- Note: You must provide your own google-services.json (Android) and GoogleService-Info.plist (iOS).
+
+Android
+- Android Studio (recommended 4.1.1 or newer) with Android SDK
+- On Linux, adjust linuxAndroidStudioPath in capacitor.config.json if needed
+
+iOS
+- macOS Catalina or newer
+- Xcode 12.2 or newer
+
+---
+
+### Development / Run in Browser
+Start a local development server with live reload:
+```
+ionic serve
+```
+
+---
+
+### Run on Android (Livereload)
+Build the app once, then run with livereload:
+```
+ionic build
+ionic capacitor run android --livereload --external --host=YOUR_IP --disableHostCheck
+```
+Replace YOUR_IP with your computer’s local IP. Ensure port 8100 is accessible.
+
+Build for production:
+```
+ionic capacitor run android --prod --release
+```
+
+Install via Android Studio or run on emulator per Android docs.
+
+---
+
+### Run on iOS (Livereload)
+Build the app once, then run with livereload:
+```
+ionic build
+ionic capacitor run ios --livereload --external --host=YOUR_IP --disableHostCheck
+```
+Replace YOUR_IP with your Mac’s local IP. Ensure port 8100 is accessible.
+
+Build for production:
+```
+ionic capacitor run ios --prod --release
+```
+
+---
+
+### Best Practices
+- Use reusable components for shared UI across pages.  
+- Use Angular pipes for currency conversion and value formatting.  
+- Support light/dark themes using CSS variables. See src/app/theme/variables.scss and src/app/global.scss.
+
+---
+
+### Folder / Commands Quick Reference
+- Install dependencies:
+```
+npm i
+```
+- Start dev server:
+```
+ionic serve
+```
+- Build:
+```
+ionic build
+```
+- Android prod build:
+```
+ionic capacitor run android --prod --release
+```
+- iOS prod build:
+```
+ionic capacitor run ios --prod --release
+```
+
+---
+
+### License
+- Code: Licensed under **GPLv3**.  
+- Project and assets attribution: "Beaconchain" and certain assets are attributed to **Mahdi Amolimoghaddam** and some non-code content is indicated as **Attribution 4.0 International (CC BY 4.0)**. See LICENSE files in the repository for full details.
+
+---
+
+If you want, I can also:
+- Generate LICENSE and LICENSE-ATTRIBUTION files,
+- Add suggested file headers for source files,
+- Produce a Release / App Store checklist.
