@@ -71,12 +71,3 @@ total:51, valid:49, invalid:0, errors:2
 ## Running tests
 
 ```
-bundle exec rspec
-```
-
-## Releasing new gem
-
-```
-gem bump --version patch|minor|major
-bundle exec rake release
-```
