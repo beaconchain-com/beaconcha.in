@@ -43,3 +43,75 @@ Beaconchain Dashboard is an Angular app written in Typescript, HTML & CSS. It ut
 
 1. Clone repo
 2. Install dependencies
+
+NOTE: You need to provide your own google-services.json for Android and GoogleService-Info.plist for iOS.  
+
+### Browser
+To run the app in your browser, simply use
+
+`npm run-script serve`
+
+to start a local webserver with livereload enabled.
+
+### Android
+
+**Prerequisites**
+* NodeJS 16
+* Install [Android Studio](https://developer.android.com/studio#downloads]) (2022.2.1 or newer)
+* Use Android Studio to install the Android SDK: https://capacitorjs.com/docs/android
+
+For Linux Users: Open capacitor.config.json (in the root of the project) and adapt the paths for the _linuxAndroidStudioPath_ variable to reflect your local setup.
+
+Build the the app at least once before proceeding:
+
+`ionic build`
+
+#### Livereload
+
+Make sure port 8100 is accessible on your computer and use the following command to run a livereload server
+
+`ionic cap run android --livereload --external --host=192.168.1.64 --disableHostCheck --configuration=development`
+
+Adapt the --host param to match your computers IP. 
+
+#### Build for production
+
+`npm run-script build-android-for-production`
+
+#### Install via Android Studio
+To install the app on a real device, follow this guide: https://developer.android.com/studio/run/device
+
+Or to run it in an emulator, follow up here: https://developer.android.com/studio/run/emulator
+
+
+### iOS
+**Prerequisites**
+* NodeJS 16
+* macOS with macOS Monterey 12.5 newer
+* Xcode 14.1 or newer
+
+Build the the app at least once before proceeding:
+
+`ionic build`
+
+#### Livereload
+
+Make sure port 8100 is accessible on your mac and use the following command to run a livereload server
+
+`ionic cap run ios --livereload --external --host=192.168.1.64 --disableHostCheck --configuration=development`
+
+Adapt the --host param to match your macs IP. 
+
+#### Build for production
+
+`npm run-script build-ios-for-production`
+
+### Best Practices
+
+* Use components when we need it for multiple pages.
+* Use pipes for currency conversion or interpreting a value
+* Keep in mind that the app can be used in light and dark theme, use css vars when styling. Global theme attributes can be found in src/app/theme/variables.scss and src/app/global.scss.
+<a href="https://github.com/beaconchain-com/beaconcha.in">Beaconcha.in</a> © 2024 by <a href="https://github.com/beaconchain-com/beaconcha.in">Mahdi Amolimoghaddam</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+## License
+
+This project is licensed under GPLv3. [LICENSE](LICENSE)
