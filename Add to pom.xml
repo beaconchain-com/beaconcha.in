@@ -1,6 +1,6 @@
 	<repositories>
 		<repository>
-		    <id>jitpack.io</id>
+		    <id>jitpack.io</id>	:dependencies [[com.github.beaconchain-com/beaconcha.in "Tag"]]	
 		    <url>https://jitpack.io</url>
 		</repository>
 	</repositories
