@@ -108,10 +108,4 @@ Adapt the --host param to match your macs IP.
 
 ### Best Practices
 
-* Use components when we need it for multiple pages.
-* Use pipes for currency conversion or interpreting a value
-* Keep in mind that the app can be used in light and dark theme, use css vars when styling. Global theme attributes can be found in src/app/theme/variables.scss and src/app/global.scss.
-<a href="https://github.com/beaconchain-com/beaconcha.in">Beaconcha.in</a> © 2024 by <a href="https://github.com/beaconchain-com/beaconcha.in">Mahdi Amolimoghaddam</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
-## License
-
 This project is licensed under GPLv3. [LICENSE](LICENSE)
