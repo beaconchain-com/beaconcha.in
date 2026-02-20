@@ -1,34 +1,31 @@
-Build starting...
-Build image: default
-Start: Fri Jun 6 03:18:46 UTC 2025 848c0db76875
-Git:
-beaconcha.in-0-gcc67e48
-commit cc67e481e3d007a101c19afde004d30cfd2bbfb8
-Author: beaconchain-com 
-Date:   Sun May 4 12:29:06 2025 +0330
-
-    Beaconcha.in
-    
-
-Init SDKMan
-
-ERROR:
-No build file found. Looking for Gradle/Maven/Sbt/Lein build file in the root of the project
-See the documentation at https://docs.jitpack.io
-Files: 
-LICENSE
-README.md
-angular.json
-browserslist
-capacitor.config.json
-ionic.config.json
-karma.conf.js
-package-lock.json
-package.json
-tsconfig.app.json
-tsconfig.json
-tsconfig.spec.json
-tslint.json
-2025-06-06T03:18:46.959215875Z
-Exit code: 1
-
+1.	JitCI starting beaconcha.in build b1KHX4QM0TN2PG1KPW9Z1V0ECF
+2.	Build #47 on branch 'main'. Commit: 'cb2b2c85'
+3.	Version: 2.0-8-g0209f0c-0-20250727124920 
+4.	
+5.	00:00 $ git config --global credential.helper cache
+6.	00:00 $ git clone --branch main https://github.com/beaconchain-com/beaconcha.in.git .
+7.	Cloning into '.'...
+8.	00:00 $ git checkout -qf cb2b2c8503653d7a6b5a58bcae39b1ad42e4342a
+9.	00:00 $ git log --oneline -1
+10.	cb2b2c8 Update workflow GitHub Actions
+11.	00:00 $ git show --name-status
+12.	commit cb2b2c8503653d7a6b5a58bcae39b1ad42e4342a
+13.	Author: beaconchain-com <54014061+beaconchain-com@users.noreply.github.com>
+14.	Date:   Fri Feb 20 12:02:48 2026 +0330
+15.	
+16.	    Update workflow GitHub Actions
+17.	
+18.	A	workflow GitHub Actions
+19.	00:00 $ git describe --always --long --tags
+20.	beaconcha.in-38-gcb2b2c8
+21.	Artifacts in DEPLOY_DIR: 0. Publish: true
+22.	00:01 $ echo Custom build commands
+23.	Custom build commands
+24.	Artifacts in DEPLOY_DIR: 0. Publish: true
+25.	Artifacts in DEPLOY_DIR: 0. Publish: true
+26.	Artifacts in DEPLOY_DIR: 0. Publish: true
+27.	Artifacts in DEPLOY_DIR: 0. Publish: true
+Notification result: Emailed: financialfeemore.amoli@gmail.com
+Published to JitPack:
+ - 
+JitPack. Updated status for com.github.beaconchain-com/beaconcha.in/main-SNAPSHOT to ok. {"status":"ok"}
