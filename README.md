@@ -1,111 +1,403 @@
-![[beaconchain Dashboard](https://beaconcha.in/mobile)](.github/banner.png)  
-[![Build](https://github.com/gobitfly/eth2-beaconchain-explorer-app/actions/workflows/build.yaml/badge.svg)](https://github.com/gobitfly/eth2-beaconchain-explorer-app/actions/workflows/build.yaml)  
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset=“UTF-8”>
+    <meta name=“viewport” content=“width=device-width, initial-scale=1.0”>
+    
+    <!— Meta Tags for App Links (Facebook, Telegram, etc.) —>
+    <meta property=“al:ios:app_name” content=“Beaconchain Dashboard” />
+    <meta property=“al:ios:app_store_id” content=“1541822121” />
+    <meta property=“al:ios:url” content=“https://apps.apple.com/app/beaconchain-dashboard/id1541822121” />
+    <meta property=“al:android:app_name” content=“Beaconchain Dashboard” />
+    <meta property=“al:android:package” content=“in.beaconcha.mobile” />
+    <meta property=“al:android:url” content=“https://play.google.com/store/apps/details?id=in.beaconcha.mobile” />
+    <meta property=“al:web:should_fallback” content=“true” />
+    
+    <!— Open Graph Metadata for social sharing —>
+    <meta property=“og:title” content=“Beaconchain Dashboard – Ethereum Validator Monitor” />
+    <meta property=“og:description” content=“Open-source app for monitoring Ethereum and Gnosis validators, built by Mahdi Amolimoghaddam” />
+    <meta property=“og:image” content=“https://raw.githubusercontent.com/gobitfly/eth2-beaconchain-explorer-app/master/.github/banner.png” />
+    <meta property=“og:url” content=“https://beaconcha.in/mobile” />
+    
+    <title>Beaconchain Dashboard – by Mahdi Amolimoghaddam</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, ‘Segoe UI’, Roboto, ‘Helvetica Neue’, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+        .card {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            background: #1a1f36;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .header h1 span {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .badge img {
+            height: 30px;
+        }
+        .content {
+            padding: 40px;
+        }
+        .store-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .store-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .store-button.apple {
+            background: #000;
+        }
+        .store-button.google {
+            background: #3ddc84;
+            color: #000;
+        }
+        .store-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .store-button img {
+            width: 24px;
+            height: 24px;
+            filter: invert(1);
+        }
+        .store-button.google img {
+            filter: none;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: #f7f9fc;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .feature:hover {
+            background: #eef2f6;
+        }
+        .feature .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1a1f36;
+        }
+        .feature p {
+            color: #555;
+            line-height: 1.5;
+        }
+        .redirect-message {
+            text-align: center;
+            background: #e8f0fe;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 15px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .developer-info {
+            background: #1a1f36;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+            border-radius: 30px 30px 0 0;
+        }
+        .developer-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .developer-info p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            opacity: 0.9;
+        }
+        .license {
+            background: #0f111f;
+            padding: 15px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .license a {
+            color: #f093fb;
+            text-decoration: none;
+        }
+        .license img {
+            width: 20px;
+            height: 20px;
+            margin: 0 2px;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class=“card”>
+        <div class=“header”>
+            <h1><span>Beaconchain</span> Dashboard</h1>
+            <p>Open-source app for monitoring Ethereum and Gnosis validators</p>
+            <div class=“badges”>
+                <a href=“https://github.com/gobitfly/eth2-beaconchain-explorer-app/actions/workflows/build.yaml”>
+                    <img src=“https://github.com/gobitfly/eth2-beaconchain-explorer-app/actions/workflows/build.yaml/badge.svg” alt=“Build Status”>
+                </a>
+                <a href=“https://discord.gg/dzPbPkBCP”>
+                    <img src=“https://img.shields.io/badge/chat-discord-blue?logo=discord” alt=“Discord”>
+                </a>
+                <a href=“https://github.com/gobitfly/eth2-beaconchain-explorer-app/blob/master/LICENSE”>
+                    <img src=“https://img.shields.io/github/license/gobitfly/eth2-beaconchain-explorer-app” alt=“License”>
+                </a>
+            </div>
+        </div>
 
-# Beaconchain Dashboard App
+        <div class=“content”>
+            <!— Direct download buttons —>
+            <div class=“store-buttons”>
+                <a href=“https://apps.apple.com/app/beaconchain-dashboard/id1541822121” class=“store-button apple” target=“_blank” rel=“noopener noreferrer” id=“appstore-button”>
+                    <img src=“https://cdn-icons-png.flaticon.com/512/888/888841.png” alt=“Apple”>
+                    Download on the App Store
+                </a>
+                <a href=“https://play.google.com/store/apps/details?id=in.beaconcha.mobile” class=“store-button google” target=“_blank” rel=“noopener noreferrer”>
+                    <img src=“https://cdn-icons-png.flaticon.com/512/888/888857.png” alt=“Google Play”>
+                    Get it on Google Play
+                </a>
+            </div>
 
-Beaconchain Dashboard is an open source ethereum and gnosis validator performance tracker app for Android and iOS. It utilizes the beaconcha.in API. 
+            <!— Key features (extracted from README) —>
+            <h2 style=“text-align:center; margin-bottom:20px; color:#1a1f36;”>✨ Key Features</h2>
+            <div class=“features”>
+                <div class=“feature”>
+                    <div class=“emoji”>📊</div>
+                    <h3>Online Validator Monitoring</h3>
+                    <p>Online status, balances, earnings, and more</p>
+                </div>
+                <div class=“feature”>
+                    <div class=“emoji”>🔔</div>
+                    <h3>Various Alerts</h3>
+                    <p>Notifications for validator status changes</p>
+                </div>
+                <div class=“feature”>
+                    <div class=“emoji”>⛓️</div>
+                    <h3>Ethereum & Gnosis Support</h3>
+                    <p>Including testnets</p>
+                </div>
+                <div class=“feature”>
+                    <div class=“emoji”>📈</div>
+                    <h3>Execution Block Rewards</h3>
+                    <p>View block proposal rewards</p>
+                </div>
+                <div class=“feature”>
+                    <div class=“emoji”>🖥️</div>
+                    <h3>Machine Monitoring</h3>
+                    <p>CPU usage, network, and more</p>
+                </div>
+                <div class=“feature”>
+                    <div class=“emoji”>🚀</div>
+                    <h3>Rocketpool Support</h3>
+                    <p>Customize stake share</p>
+                </div>
+                <div class=“feature”>
+                    <div class=“emoji”>🌓</div>
+                    <h3>Light/Dark Theme</h3>
+                    <p>Choose your preferred theme</p>
+                </div>
+                <div class=“feature”>
+                    <div class=“emoji”>🔒</div>
+                    <h3>Open Source (GPLv3)</h3>
+                    <p>Transparency and security</p>
+                </div>
+            </div>
 
-[![Get it on Google Play](.github/assets/android.png)](https://play.google.com/store/apps/details?id=in.beaconcha.mobile)
-[![Get it App Store](.github/assets/ios.png)](https://apps.apple.com/app/beaconchain-dashboard/id1541822121)
+            <!— Auto‑redirect to App Store —>
+            <div class=“redirect-message” id=“redirect-message”>
+                <div class=“spinner” id=“spinner”></div>
+                <p style=“font-size:1.2rem; margin-bottom:10px;”>Redirecting to App Store...</p>
+                <p>If you are not redirected automatically, <a href=“#” id=“manual-link” style=“color:#667eea; font-weight:bold;”>click here</a>.</p>
+                <small>You will be redirected to the Apple App Store</small>
+            </div>
 
-## About
+            <!— Developer information (based on README) —>
+            <div class=“developer-info”>
+                <h3>👨‍💻 Mahdi Amolimoghaddam</h3>
+                <p>Developer and maintainer of the Beaconchain Dashboard project. This app is built with love for the Ethereum community.</p>
+                <p>GitHub: <a href=“https://github.com/beaconchain-com/beaconcha.in” style=“color:#f093fb;”>beaconchain-com/beaconcha.in</a></p>
+            </div>
 
-Beaconchain Dashboard is an Angular app written in Typescript, HTML & CSS. It utilizes the Ionic framework for mobile components and Ionic Capacitor as bridge for native code.
+            <!— License and Creative Commons info (from README) —>
+            <div class=“license”>
+                <span>© 2024 Mahdi Amolimoghaddam - </span>
+                <a href=“https://github.com/beaconchain-com/beaconcha.in”>Beaconcha.in</a>
+                <span> licensed under </span>
+                <a href=“https://creativecommons.org/licenses/by/4.0/“>Creative Commons Attribution 4.0 International</a>
+                <img src=“https://mirrors.creativecommons.org/presskit/icons/cc.svg” alt=“CC”>
+                <img src=“https://mirrors.creativecommons.org/presskit/icons/by.svg” alt=“BY”>
+                <span> - The main project code is released under GPLv3.</span>
+            </div>
+            <div class=“footer-note”>
+                <a href=“https://beaconcha.in/mobile” style=“color:#aaa;”>beaconcha.in/mobile</a>
+            </div>
+        </div>
+    </div>
 
-## Features
+    <script>
+        (function() {
+            // App Store ID (from README)
+            const APP_STORE_ID = “1541822121”;
+            const APP_STORE_URL = `https://apps.apple.com/app/beaconchain-dashboard/id${APP_STORE_ID}`;
+            
+            // Protocol validation function (as in original code)
+            function validateProtocol(url) {
+                var parser = document.createElement(‘a’);
+                parser.href = url;
+                var protocol = parser.protocol.toLowerCase();
+                if ([ ‘javascript:’,  ‘vbscript:’,  ‘data:’, ‘ftp:’,’:’ , ‘ ‘].indexOf(protocol) < 0) {
+                    return url;
+                }
+                return null;
+            }
 
-- Ethereum and Gnosis supported
-- Keep track on your validators online status, balances, returns and more  
-- Various notification alerts for your validators  
-- Execution block rewards overview
-- Machine monitoring (CPU usage, network usage and more)
-- Rocketpool support
-- Customize stake share if you only partially own a validator
-- Combined dashboard view  
-- Support for up to 280 validators  
-- Ethereum client update notifications  
-- Network warnings  
-- Support for multiple currencies  
-- Mainnet & Testnet support  
-- Light Theme & Dark Theme  
+            // HTML entity decoding (as in original code)
+            function unescapeHtml(escaped_str) {
+                var div = document.createElement(‘div’);
+                div.innerHTML = escaped_str;
+                var child = div.childNodes[0];
+                return child ? child.nodeValue : null;
+            }
 
-## Device support
+            // Final validation function (as in original code)
+            function validate(url) {
+                var unescaped_value = unescapeHtml(url);
+                if (unescaped_value && validateProtocol(unescaped_value)) {
+                    return unescaped_value;
+                }
+                return ‘/‘;
+            }
 
-- Android 5.1 or newer
-- iOS 13 or newer
+            // Redirect to App Store
+            function redirectToAppStore() {
+                var validUrl = validate(APP_STORE_URL);
+                if (validUrl && validUrl !== ‘/‘) {
+                    window.location.href = validUrl;
+                } else {
+                    console.warn(‘Invalid address’);
+                    // fallback
+                    window.location.href = ‘https://apps.apple.com’;
+                }
+            }
 
-## Support & Community
+            // Start redirect timer (after 3 seconds)
+            setTimeout(redirectToAppStore, 3000);
 
-- 📢 [Join our Discord server](https://discord.gg/dzPbPkBCP)
+            // Manual link
+            var manualLink = document.getElementById(‘manual-link’);
+            manualLink.addEventListener(‘click’, function(e) {
+                e.preventDefault();
+                redirectToAppStore();
+            });
 
-## Development
-### Getting started
+            // Also handle the App Store button click with validation
+            document.getElementById(‘appstore-button’).addEventListener(‘click’, function(e) {
+                e.preventDefault();
+                var validUrl = validate(APP_STORE_URL);
+                if (validUrl && validUrl !== ‘/‘) {
+                    window.location.href = validUrl;
+                } else {
+                    // fallback
+                    window.location.href = APP_STORE_URL;
+                }
+            });
 
-1. Clone repo
-2. Install dependencies
-
-NOTE: You need to provide your own google-services.json for Android and GoogleService-Info.plist for iOS.  
-
-### Browser
-To run the app in your browser, simply use
-
-`npm run-script serve`
-
-to start a local webserver with livereload enabled.
-
-### Android
-
-**Prerequisites**
-* NodeJS 16
-* Install [Android Studio](https://developer.android.com/studio#downloads]) (2022.2.1 or newer)
-* Use Android Studio to install the Android SDK: https://capacitorjs.com/docs/android
-
-For Linux Users: Open capacitor.config.json (in the root of the project) and adapt the paths for the _linuxAndroidStudioPath_ variable to reflect your local setup.
-
-Build the the app at least once before proceeding:
-
-`ionic build`
-
-#### Livereload
-
-Make sure port 8100 is accessible on your computer and use the following command to run a livereload server
-
-`ionic cap run android --livereload --external --host=192.168.1.64 --disableHostCheck --configuration=development`
-
-Adapt the --host param to match your computers IP. 
-
-#### Build for production
-
-`npm run-script build-android-for-production`
-
-#### Install via Android Studio
-To install the app on a real device, follow this guide: https://developer.android.com/studio/run/device
-
-Or to run it in an emulator, follow up here: https://developer.android.com/studio/run/emulator
-
-
-### iOS
-**Prerequisites**
-* NodeJS 16
-* macOS with macOS Monterey 12.5 newer
-* Xcode 14.1 or newer
-
-Build the the app at least once before proceeding:
-
-`ionic build`
-
-#### Livereload
-
-Make sure port 8100 is accessible on your mac and use the following command to run a livereload server
-
-`ionic cap run ios --livereload --external --host=192.168.1.64 --disableHostCheck --configuration=development`
-
-Adapt the --host param to match your macs IP. 
-
-#### Build for production
-
-`npm run-script build-ios-for-production`
-
-### Best Practices
-
-This project is licensed under GPLv3. [LICENSE](LICENSE)
+            // Optional device detection
+            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (!isIOS) {
+                console.log(‘User is not on an iOS device, but will still be redirected to the App Store (the web page will likely open).’);
+            }
+        })();
+    </script>
+</body>
+</html>
