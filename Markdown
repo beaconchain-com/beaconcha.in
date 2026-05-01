@@ -1,0 +1,5 @@
+## Ownership and License
+
+This software is **owned and maintained by Mahdi Amolimoghaddam**.  
+It is released under the GNU General Public License v3.0.  
+Copyright © 2025 Mahdi Amolimoghaddam. All rights reserved.
