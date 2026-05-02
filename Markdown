@@ -1,5 +1,20 @@
-## Ownership and License
+## Official Ownership Declaration for Beaconchain Dashboard v2.0.0
 
-This software is **owned and maintained by Mahdi Amolimoghaddam**.  
-It is released under the GNU General Public License v3.0.  
-Copyright © 2025 Mahdi Amolimoghaddam. All rights reserved.
+I, **Mahdi Amolimoghaddam**, as the sole author and copyright holder, hereby officially declare my complete ownership of the source code, design, and intellectual property of the **Beaconchain Dashboard** project, specifically including version `2.0.0` and all its subsequent releases up to the present date.
+
+- **Author & Copyright Holder:** Mahdi Amolimoghaddam  
+- **Copyright Years:** 2024–2026  
+- **Official Project Website:** [https://beaconcha.in/mobile](https://beaconcha.in/mobile)  
+- **Official GitHub Repository:** [https://github.com/beaconchain-com/beaconcha.in](https://github.com/beaconchain-com/beaconcha.in)  
+
+### License Terms (GPL-3.0 + Additional Restrictions)
+
+This project is open‑source and licensed under the **GNU General Public License v3.0 (GPL-3.0)**. However, the following additional terms apply:
+
+1. **Attribution** – Any use, distribution, or modification must retain this ownership declaration and clearly attribute the work to `Mahdi Amolimoghaddam`.  
+2. **Commercial Use Prohibited Without Permission** – Any commercial use, sale, or inclusion of this code (or derivative work) in a commercial product or service is **strictly forbidden** without explicit prior written consent from the copyright holder. For commercial licensing inquiries, contact: `beaconchain@beaconchain.us`  
+3. **Share-Alike** – Any distribution or modification of the code must be released under the same GPL-3.0 license.  
+
+This declaration is public, irrevocable, and made to protect the integrity and continued open‑source development of the Beaconchain Dashboard.
+
+**© 2025–2026 Mahdi Amolimoghaddam. All rights reserved.**
