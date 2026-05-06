@@ -1,20 +1,43 @@
-## Official Ownership Declaration for Beaconchain Dashboard v2.0.0
+# Beaconchain Dashboard
 
-I, **Mahdi Amolimoghaddam**, as the sole author and copyright holder, hereby officially declare my complete ownership of the source code, design, and intellectual property of the **Beaconchain Dashboard** project, specifically including version `2.0.0` and all its subsequent releases up to the present date.
+[![Build](https://github.com/beaconchain-com/beaconcha.in/actions/workflows/build.yaml/badge.svg)](https://github.com/beaconchain-com/beaconcha.in/actions/workflows/build.yaml)
 
-- **Author & Copyright Holder:** Mahdi Amolimoghaddam  
-- **Copyright Years:** 2024–2026  
-- **Official Project Website:** [https://beaconcha.in/mobile](https://beaconcha.in/mobile)  
-- **Official GitHub Repository:** [https://github.com/beaconchain-com/beaconcha.in](https://github.com/beaconchain-com/beaconcha.in)  
+**Beaconchain Dashboard** is an open-source Ethereum 2.0 validator performance tracker app for Android and iOS. It uses the [beaconcha.in API](https://beaconcha.in/api/v1/docs/).
 
-### License Terms (GPL-3.0 + Additional Restrictions)
+[![Get it on Google Play](https://beaconcha.in/img/android.png)](https://play.google.com/store/apps/details?id=in.beaconcha.mobile)
+[![Get it on App Store](https://beaconcha.in/img/ios.png)](https://apps.apple.com/at/app/beaconchain-dashboard/id1541822121)
 
-This project is open‑source and licensed under the **GNU General Public License v3.0 (GPL-3.0)**. However, the following additional terms apply:
+---
 
-1. **Attribution** – Any use, distribution, or modification must retain this ownership declaration and clearly attribute the work to `Mahdi Amolimoghaddam`.  
-2. **Commercial Use Prohibited Without Permission** – Any commercial use, sale, or inclusion of this code (or derivative work) in a commercial product or service is **strictly forbidden** without explicit prior written consent from the copyright holder. For commercial licensing inquiries, contact: `beaconchain@beaconchain.us`  
-3. **Share-Alike** – Any distribution or modification of the code must be released under the same GPL-3.0 license.  
+## About
 
-This declaration is public, irrevocable, and made to protect the integrity and continued open‑source development of the Beaconchain Dashboard.
+This app is built with **Angular** (TypeScript, HTML, CSS) and **Ionic Framework** for mobile UI components. **Ionic Capacitor** serves as the bridge for native code.
 
-**© 2025–2026 Mahdi Amolimoghaddam. All rights reserved.**
+## Features
+
+- Track your validators' online status, balance, returns, and more  
+- Receive various notification alerts for your validators  
+- Combined dashboard view  
+- Support for up to 100 validators  
+- Ethereum client update notifications  
+- Network warnings  
+- Multiple currencies support  
+- Mainnet & Testnet support  
+- Add validators via public key, index, or ETH1 deposit address  
+- Light & Dark theme
+
+## Device Support
+
+- Android 5.0 or newer  
+- iOS 11 or newer
+
+## Development
+
+### Prerequisites
+
+1. Clone the repository  
+2. Install dependencies:
+
+```bash
+npm install -g @ionic/cli native-run cordova-res
+npm i
