@@ -1,6 +1,4 @@
-pnu_0vUBDWUj3R2aXc46K2jRWoWYJ2BC8d3DBoVh
 
-prefect cloud login -k pnu_0vUBDWUj3R2aXc46K2jRWoWYJ2BC8d3DBoVh
 
 Active
 (Current session)
